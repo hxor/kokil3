@@ -1,7 +1,7 @@
 // Definisi varibel untuk element
 const form      = document.querySelector('#form-task');
 const taskList  = document.querySelector('.list-group');
-const clearBtn  = document.querySelector('.task-delete');
+const clearBtn  = document.querySelector('#clear-task');
 const taskInput = document.querySelector('#input-task');
 
 
@@ -15,6 +15,9 @@ function loadEventListeners() {
 
     // Menambahkan event delete task
     taskList.addEventListener('click', deleteTask);
+
+    // Menambahkan event clear task
+    clearBtn.addEventListener('click', clearTask);
 }
 
 // Fungsi addTask
@@ -58,4 +61,9 @@ function deleteTask(e) {
             e.target.parentElement.parentElement.remove();
         }
     }
+}
+
+// Fungsi Clear Task
+function clearTask() {
+    taskList.innerHTML = '';
 }
