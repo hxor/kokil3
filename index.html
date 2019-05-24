@@ -20,10 +20,10 @@
                         Task List
                     </div>
                     <div class="card-body">
-                        <form id="form-task">
+                        <form id="form-task" method="POST">
                             <div class="form-group">
                                 <label for="">New Task</label>  
-                                <input type="text" name="title" id="title" class="form-control">
+                                <input type="text" name="title" id="input-task" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -31,11 +31,11 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 Cras justo odio
-                                <button class="float-right btn btn-danger btn-sm delete-item">x</button>
+                                <button class="float-right btn btn-danger btn-sm delete-task">x</button>
                             </li>
                             <li class="list-group-item">
                                 Dapibus ac facilisis in
-                                <button class="float-right btn btn-danger btn-sm delete-item">x</button>
+                                <button class="float-right btn btn-danger btn-sm delete-task">x</button>
                             </li>
                             <li class="list-group-item">
                                 Vestibulum at eros
