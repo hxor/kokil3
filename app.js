@@ -12,6 +12,9 @@ loadEventListeners();
 function loadEventListeners() {
     // Menambahkan event submit pada form dengan fungsi addTask
     form.addEventListener('submit', addTask);
+
+    // Menambahkan event delete task
+    taskList.addEventListener('click', deleteTask);
 }
 
 // Fungsi addTask
@@ -27,13 +30,16 @@ function addTask(e) {
         li.className = 'list-group-item';
         // Membuat Text Node dan Menyisipkannya dalam element li
         li.appendChild(document.createTextNode(taskInput.value));
-        // Membuat Element Button Delete
-        const button = document.createElement('button');
+        // Membuat Element link untuk fungsi Delete
+        const link = document.createElement('a');
+        // Memberikan nilai href dengan #
+        link.href = "#";
         // Menambhakan class dalam button delete
-        button.className = 'float-right btn btn-danger btn-sm delete-task';
-        button.appendChild(document.createTextNode('x'));
-        // Sisipkan Button ke element li
-        li.appendChild(button);
+        link.className = 'float-right delete-task';
+        // Menambahkan icon minus untuk button link
+        link.innerHTML = '<i class="fas fa-minus-square"></i>';
+        // Sisipkan link button ke element li
+        li.appendChild(link);
 
         // Sisipkan element li yang sudah dibuat ke elemen ul
         taskList.appendChild(li);
@@ -42,5 +48,14 @@ function addTask(e) {
         // Clear Input
         taskInput.value = '';
 
+    }
+}
+
+// Fungsi deleteTask
+function deleteTask(e) {
+    if (e.target.parentElement.classList.contains('delete-task')) {
+        if (confirm('Are you sure?')) {
+            e.target.parentElement.parentElement.remove();
+        }
     }
 }
